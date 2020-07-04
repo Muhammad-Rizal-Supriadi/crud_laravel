@@ -10,7 +10,7 @@
       <th style="width: 10px">#</th>
       <th>Judul</th>
       <th>Pertanyaan</th>
-      <th style="width: 40px">Label</th>
+      <th style="width: 200px">Detail</th>
     </tr>
   </thead>
   <tbody>
@@ -19,11 +19,18 @@
     <?php $no++;?>
     <tr>
       <td>{{$no}}</td>
-      <td>{{$pertanyaan->judul}}</td>
+      <td><a href='{{ url("/jawaban/{$pertanyaan->id}") }}'>{{$pertanyaan->judul}}</a></td>
       <td>
         {{ $pertanyaan->isi }}
       </td>
-      <td><input type="submit" class="btn btn-primary" value="Jawab Pertanyaan"></span></td>
+      <td>
+        <a href='{{ url("/pertanyaan/{$pertanyaan->id}") }}'><input type="submit" class="btn btn-primary btn-sm" value="Detail"></a>
+
+        <a href='{{ url("/pertanyaan/{$pertanyaan->id}/edit") }}'><input type="submit" class="btn btn-success btn-sm" value="Edit"></a>
+
+        <a href='{{ url("/pertanyaand/{$pertanyaan->id}") }}'><input type="submit" class="btn btn-danger btn-sm" value="Delete"></a>
+      </span>
+    </td>
     </tr>
       @endforeach
   </tbody>
